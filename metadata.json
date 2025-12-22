@@ -1,0 +1,5 @@
+{
+  "name": "Media Drive Character Counter",
+  "description": "A utility-focused text tool designed to prevent truncation on Facebook and LinkedIn.",
+  "requestFramePermissions": []
+}
