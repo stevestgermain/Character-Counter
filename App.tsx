@@ -3,8 +3,8 @@ import { CharacterCounter } from './components/CharacterCounter';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#f9fafb] font-sans text-gray-900 py-8 md:py-12 px-4 sm:px-6 flex items-center justify-center">
-      <div className="w-full max-w-5xl mx-auto">
+    <div className="min-h-screen bg-[#f9fafb] font-sans text-gray-900 pt-6 pb-12 px-4 flex items-start justify-center">
+      <div className="w-full max-w-[460px] mx-auto">
         <CharacterCounter />
       </div>
     </div>

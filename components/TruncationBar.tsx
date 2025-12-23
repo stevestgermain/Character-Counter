@@ -28,14 +28,14 @@ export const TruncationBar: React.FC<ProgressProps> = ({ current, max, label, de
   }
 
   return (
-    <div className={`p-4 rounded-lg border transition-all duration-200 ${isOver ? 'border-red-200 bg-red-50/30' : 'border-gray-200 bg-white'}`}>
-      <div className="flex items-start justify-between mb-2">
-        <div className="flex items-center gap-2">
-          <div className={`p-1.5 rounded-md ${isOver ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-600'}`}>
+    <div className={`p-4 rounded-2xl border transition-all duration-200 ${isOver ? 'border-red-200 bg-red-50/30' : 'border-gray-200 bg-white'}`}>
+      <div className="flex items-start justify-between mb-3">
+        <div className="flex items-center gap-3">
+          <div className={`p-2 rounded-xl ${isOver ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-600'}`}>
             <Icon className="w-4 h-4" />
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-gray-900">{label}</h4>
+            <h4 className="text-sm font-bold text-gray-900">{label}</h4>
             <p className="text-xs text-gray-500">{description}</p>
           </div>
         </div>
@@ -44,17 +44,17 @@ export const TruncationBar: React.FC<ProgressProps> = ({ current, max, label, de
             {remaining < 0 ? current : current} <span className="text-gray-400">/ {max}</span>
           </span>
           {isOver && (
-            <span className="text-[10px] font-bold uppercase tracking-wide flex items-center gap-1">
+            <span className="text-[10px] font-bold uppercase tracking-wide flex items-center gap-1 mt-1">
               <Ban className="w-3 h-3" /> Truncated
             </span>
           )}
           {isWarning && (
-            <span className="text-[10px] font-bold uppercase tracking-wide flex items-center gap-1">
+            <span className="text-[10px] font-bold uppercase tracking-wide flex items-center gap-1 mt-1">
               <AlertCircle className="w-3 h-3" /> Near Limit
             </span>
           )}
           {isSafe && current > 0 && (
-             <span className="text-[10px] font-bold uppercase tracking-wide flex items-center gap-1">
+             <span className="text-[10px] font-bold uppercase tracking-wide flex items-center gap-1 mt-1">
              <CheckCircle2 className="w-3 h-3" /> Optimal
            </span>
           )}
@@ -62,16 +62,16 @@ export const TruncationBar: React.FC<ProgressProps> = ({ current, max, label, de
       </div>
 
       {/* Progress Bar Track */}
-      <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+      <div className="h-2.5 w-full bg-gray-100 rounded-full overflow-hidden">
         <div 
-          className={`h-full transition-all duration-300 ease-out ${barColor}`} 
+          className={`h-full transition-all duration-500 ease-out rounded-full ${barColor}`} 
           style={{ width: `${percentage}%` }}
         />
       </div>
       
       {/* Visual Marker for Overspill if over */}
       {isOver && (
-         <div className="mt-1 text-xs text-red-600 font-medium text-right">
+         <div className="mt-1.5 text-xs text-red-600 font-medium text-right">
            {Math.abs(remaining)} chars over limit
          </div>
       )}
