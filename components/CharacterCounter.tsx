@@ -34,7 +34,7 @@ export const CharacterCounter: React.FC = () => {
       </div>
 
       {/* Main Interface Card */}
-      <div className="bg-white rounded-3xl shadow-xl shadow-gray-200/60 border border-gray-100 p-6">
+      <div className="bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-200 p-6">
         <div className="flex flex-col gap-6">
           
           {/* Input Section */}
@@ -44,7 +44,7 @@ export const CharacterCounter: React.FC = () => {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Start typing or paste text..."
-                className="w-full h-56 p-5 rounded-2xl border border-gray-200 bg-gray-50 text-gray-900 text-base placeholder:text-gray-400 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none resize-none transition-all duration-200"
+                className="w-full h-56 p-5 rounded-2xl border border-gray-200 bg-gray-50 text-gray-900 text-base placeholder:text-gray-400 focus:bg-white focus:ring-1 focus:ring-blue-500/20 focus:border-blue-500 outline-none resize-none transition-all duration-200"
                 spellCheck={false}
               />
               <div className="absolute bottom-3 right-3 flex gap-2">
@@ -71,15 +71,15 @@ export const CharacterCounter: React.FC = () => {
 
             {/* Basic Stats Row */}
             <div className="grid grid-cols-3 gap-3">
-                <div className="bg-white p-3 rounded-2xl border border-gray-100 shadow-sm flex flex-col items-center justify-center hover:border-blue-100 transition-colors">
+                <div className="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm flex flex-col items-center justify-center hover:border-blue-300 transition-colors">
                     <span className="text-2xl font-bold text-gray-900 tracking-tight">{charCount}</span>
                     <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider mt-1">Characters</span>
                 </div>
-                <div className="bg-white p-3 rounded-2xl border border-gray-100 shadow-sm flex flex-col items-center justify-center hover:border-blue-100 transition-colors">
+                <div className="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm flex flex-col items-center justify-center hover:border-blue-300 transition-colors">
                     <span className="text-2xl font-bold text-gray-900 tracking-tight">{wordCount}</span>
                     <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider mt-1">Words</span>
                 </div>
-                <div className="bg-white p-3 rounded-2xl border border-gray-100 shadow-sm flex flex-col items-center justify-center hover:border-blue-100 transition-colors">
+                <div className="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm flex flex-col items-center justify-center hover:border-blue-300 transition-colors">
                     <span className="text-2xl font-bold text-gray-900 tracking-tight">{hashtagCount}</span>
                     <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider mt-1">Hashtags</span>
                 </div>
@@ -87,7 +87,7 @@ export const CharacterCounter: React.FC = () => {
           </div>
 
           {/* Analysis Section */}
-          <div className="flex flex-col gap-5 pt-2 border-t border-gray-50">
+          <div className="flex flex-col gap-5 pt-2 border-t border-gray-200">
             <div className="flex items-center gap-2">
                 <Hash className="w-4 h-4 text-blue-600" />
                 <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">Truncation Check</h3>
@@ -106,7 +106,7 @@ export const CharacterCounter: React.FC = () => {
               ))}
             </div>
 
-            <div className="mt-2 p-4 bg-blue-50/50 border border-blue-100 rounded-xl">
+            <div className="mt-2 p-4 bg-blue-50/50 border border-blue-200 rounded-xl">
                 <p className="text-xs text-blue-900 leading-relaxed">
                     <strong>Pro Tip:</strong> Limits are approximate. We use established "safe zones" to account for varying pixel widths.
                 </p>

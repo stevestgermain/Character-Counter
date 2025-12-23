@@ -28,7 +28,7 @@ export const TruncationBar: React.FC<ProgressProps> = ({ current, max, label, de
   }
 
   return (
-    <div className={`p-4 rounded-2xl border transition-all duration-200 ${isOver ? 'border-red-200 bg-red-50/30' : 'border-gray-200 bg-white'}`}>
+    <div className={`p-4 rounded-2xl border transition-all duration-200 shadow-sm ${isOver ? 'border-red-200 bg-red-50/30' : 'border-gray-200 bg-white'}`}>
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-3">
           <div className={`p-2 rounded-xl ${isOver ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-600'}`}>
