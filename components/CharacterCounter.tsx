@@ -24,11 +24,11 @@ export const CharacterCounter: React.FC = () => {
     <div className="w-full">
       {/* Tool Header - Outside the card */}
       <div className="text-center mb-5">
-        <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-600 rounded-2xl shadow-lg shadow-blue-600/10 mb-5 text-white transform transition-transform hover:scale-105 duration-300">
+        <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-600 rounded-2xl shadow-lg shadow-blue-600/10 mb-5 text-white transform -rotate-6 transition-transform hover:scale-105 duration-300">
           <Type className="w-7 h-7" />
         </div>
         <h1 className="text-3xl font-bold text-gray-900 mb-3 tracking-tight">Character Counter</h1>
-        <p className="text-sm text-gray-500 max-w-[420px] mx-auto font-normal leading-relaxed">
+        <p className="text-[13px] text-gray-500 max-w-[420px] mx-auto font-normal leading-relaxed">
           <span className="font-bold text-gray-900">Fast, reliable character counting.</span> Your hook doesn't matter if it gets cut off. We mapped the truncation points for LinkedIn and Meta so you can check your work instantly before you publish.
         </p>
       </div>
@@ -43,7 +43,7 @@ export const CharacterCounter: React.FC = () => {
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="Start typing..."
+                placeholder="Start typing or paste text..."
                 className="w-full h-56 p-5 rounded-2xl border border-gray-200 bg-gray-50 text-gray-900 text-base placeholder:text-gray-400 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none resize-none transition-all duration-200"
                 spellCheck={false}
               />
