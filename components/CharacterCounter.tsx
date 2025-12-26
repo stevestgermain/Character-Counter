@@ -1,11 +1,12 @@
 import React, { useState, useCallback } from 'react';
-import { Type, Eraser, Copy, Check, Hash } from 'lucide-react';
+import { Type, Eraser, Copy, Check, Hash, ChevronDown } from 'lucide-react';
 import { PLATFORM_LIMITS } from '../constants';
 import { TruncationBar } from './TruncationBar';
 
 export const CharacterCounter: React.FC = () => {
   const [text, setText] = useState('');
   const [copied, setCopied] = useState(false);
+  const [isTruncationExpanded, setIsTruncationExpanded] = useState(false);
 
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(text);
@@ -44,7 +45,7 @@ export const CharacterCounter: React.FC = () => {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Start typing or paste text..."
-                className="w-full h-56 p-5 rounded-2xl border border-gray-200 bg-gray-50 text-gray-900 text-base placeholder:text-gray-400 focus:bg-white focus:ring-1 focus:ring-blue-500/20 focus:border-blue-500 outline-none resize-none transition-all duration-200"
+                className="w-full h-40 p-5 rounded-2xl border border-gray-200 bg-gray-50 text-gray-900 text-base placeholder:text-gray-400 focus:bg-white focus:ring-1 focus:ring-blue-500/20 focus:border-blue-500 outline-none resize-none transition-all duration-200"
                 spellCheck={false}
               />
               <div className="absolute bottom-3 right-3 flex gap-2">
@@ -87,30 +88,37 @@ export const CharacterCounter: React.FC = () => {
           </div>
 
           {/* Analysis Section */}
-          <div className="flex flex-col gap-5 pt-2 border-t border-gray-200">
-            <div className="flex items-center gap-2">
-                <Hash className="w-4 h-4 text-blue-600" />
-                <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">Truncation Check</h3>
-            </div>
+          <div className="flex flex-col pt-1">
+            <button 
+              onClick={() => setIsTruncationExpanded(!isTruncationExpanded)}
+              className="flex items-center justify-between w-full group p-3 rounded-xl border border-transparent hover:border-gray-100 hover:bg-gray-50 transition-all duration-200"
+            >
+                <div className="flex items-center gap-2.5">
+                    <div className="p-1.5 bg-blue-50 text-blue-600 rounded-lg group-hover:bg-blue-100 transition-colors">
+                        <Hash className="w-4 h-4" />
+                    </div>
+                    <div className="flex flex-col items-start text-left">
+                        <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider group-hover:text-blue-600 transition-colors">Social Post Truncation Check</h3>
+                        <span className="text-[10px] text-gray-400 font-medium">Optional • Click to view safe zones</span>
+                    </div>
+                </div>
+                <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${isTruncationExpanded ? 'rotate-180' : ''}`} />
+            </button>
             
-            <div className="flex flex-col gap-3">
-              {PLATFORM_LIMITS.map((platform) => (
-                <TruncationBar
-                  key={platform.id}
-                  current={charCount}
-                  max={platform.limit}
-                  label={platform.name}
-                  description={platform.description}
-                  Icon={platform.icon}
-                />
-              ))}
-            </div>
-
-            <div className="mt-2 p-4 bg-blue-50/50 border border-blue-200 rounded-xl">
-                <p className="text-xs text-blue-900 leading-relaxed">
-                    <strong>Pro Tip:</strong> Limits are approximate. We use established "safe zones" to account for varying pixel widths.
-                </p>
-            </div>
+            {isTruncationExpanded && (
+                <div className="flex flex-col gap-3 mt-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                {PLATFORM_LIMITS.map((platform) => (
+                    <TruncationBar
+                    key={platform.id}
+                    current={charCount}
+                    max={platform.limit}
+                    label={platform.name}
+                    description={platform.description}
+                    Icon={platform.icon}
+                    />
+                ))}
+                </div>
+            )}
           </div>
 
         </div>
