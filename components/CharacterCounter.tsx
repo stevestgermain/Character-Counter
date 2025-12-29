@@ -35,7 +35,7 @@ export const CharacterCounter: React.FC = () => {
       </div>
 
       {/* Main Interface Card */}
-      <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl shadow-gray-200/50 dark:shadow-gray-900/50 border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
+      <div className="bg-white dark:bg-zinc-900 rounded-3xl shadow-xl shadow-gray-200/50 dark:shadow-black/50 border border-gray-200 dark:border-zinc-800 p-6 transition-colors duration-300">
         <div className="flex flex-col gap-6">
           
           {/* Input Section */}
@@ -45,7 +45,7 @@ export const CharacterCounter: React.FC = () => {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Start typing or paste text..."
-                className="w-full h-40 p-5 rounded-2xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white text-base placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:bg-white dark:focus:bg-gray-600 focus:ring-1 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-blue-400 outline-none resize-none transition-all duration-200"
+                className="w-full h-40 p-5 rounded-2xl border border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800 text-gray-900 dark:text-white text-base placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:bg-white dark:focus:bg-zinc-800 focus:ring-1 focus:ring-blue-500/20 focus:border-blue-500 dark:focus:border-blue-400 outline-none resize-none transition-all duration-200"
                 spellCheck={false}
               />
               <div className="absolute bottom-3 right-3 flex gap-2">
@@ -53,14 +53,14 @@ export const CharacterCounter: React.FC = () => {
                   <>
                     <button 
                       onClick={handleCopy}
-                      className="flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] font-semibold bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-500 shadow-sm transition-all hover:shadow-md"
+                      className="flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] font-semibold bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-500 shadow-sm transition-all hover:shadow-md"
                     >
                       {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
                       {copied ? 'Copied' : 'Copy'}
                     </button>
                     <button 
                       onClick={handleClear}
-                      className="flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] font-semibold bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:border-red-200 dark:hover:border-red-500 shadow-sm transition-all hover:shadow-md"
+                      className="flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] font-semibold bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:border-red-200 dark:hover:border-red-500 shadow-sm transition-all hover:shadow-md"
                     >
                       <Eraser className="w-3 h-3" />
                       Clear
@@ -72,15 +72,15 @@ export const CharacterCounter: React.FC = () => {
 
             {/* Basic Stats Row */}
             <div className="grid grid-cols-3 gap-3">
-                <div className="bg-white dark:bg-gray-700 p-3 rounded-2xl border border-gray-200 dark:border-gray-600 shadow-sm flex flex-col items-center justify-center hover:border-blue-300 dark:hover:border-blue-500 transition-colors">
+                <div className="bg-white dark:bg-zinc-800 p-3 rounded-2xl border border-gray-200 dark:border-zinc-700 shadow-sm flex flex-col items-center justify-center hover:border-blue-300 dark:hover:border-blue-500 transition-colors">
                     <span className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">{charCount}</span>
                     <span className="text-[10px] text-gray-400 dark:text-gray-500 uppercase font-bold tracking-wider mt-1">Characters</span>
                 </div>
-                <div className="bg-white dark:bg-gray-700 p-3 rounded-2xl border border-gray-200 dark:border-gray-600 shadow-sm flex flex-col items-center justify-center hover:border-blue-300 dark:hover:border-blue-500 transition-colors">
+                <div className="bg-white dark:bg-zinc-800 p-3 rounded-2xl border border-gray-200 dark:border-zinc-700 shadow-sm flex flex-col items-center justify-center hover:border-blue-300 dark:hover:border-blue-500 transition-colors">
                     <span className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">{wordCount}</span>
                     <span className="text-[10px] text-gray-400 dark:text-gray-500 uppercase font-bold tracking-wider mt-1">Words</span>
                 </div>
-                <div className="bg-white dark:bg-gray-700 p-3 rounded-2xl border border-gray-200 dark:border-gray-600 shadow-sm flex flex-col items-center justify-center hover:border-blue-300 dark:hover:border-blue-500 transition-colors">
+                <div className="bg-white dark:bg-zinc-800 p-3 rounded-2xl border border-gray-200 dark:border-zinc-700 shadow-sm flex flex-col items-center justify-center hover:border-blue-300 dark:hover:border-blue-500 transition-colors">
                     <span className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">{hashtagCount}</span>
                     <span className="text-[10px] text-gray-400 dark:text-gray-500 uppercase font-bold tracking-wider mt-1">Hashtags</span>
                 </div>
@@ -91,10 +91,10 @@ export const CharacterCounter: React.FC = () => {
           <div className="flex flex-col pt-1">
             <button 
               onClick={() => setIsTruncationExpanded(!isTruncationExpanded)}
-              className="flex items-center justify-between w-full group p-3 rounded-xl border border-transparent hover:border-gray-100 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200"
+              className="flex items-center justify-between w-full group p-3 rounded-xl border border-transparent hover:border-gray-100 dark:hover:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-all duration-200"
             >
                 <div className="flex items-center gap-2.5">
-                    <div className="p-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
+                    <div className="p-1.5 bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-lg group-hover:bg-blue-100 dark:group-hover:bg-blue-500/20 transition-colors">
                         <Hash className="w-4 h-4" />
                     </div>
                     <div className="flex flex-col items-start text-left">
