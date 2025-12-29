@@ -8,7 +8,11 @@ const App: React.FC = () => {
   // Listen for theme messages from Ghost site
   useEffect(() => {
     const handleThemeMessage = (event: MessageEvent) => {
+      // Log all incoming messages for debugging
+      console.log('Received message:', event.data, 'from:', event.origin);
+      
       if (event.data?.type === 'THEME_CHANGE') {
+        console.log('Setting theme to:', event.data.theme);
         setTheme(event.data.theme);
         // Apply dark class to html element for Tailwind
         if (event.data.theme === 'dark') {
@@ -23,6 +27,7 @@ const App: React.FC = () => {
     
     // Request initial theme from parent if in iframe
     if (window.parent !== window) {
+      console.log('In iframe, requesting initial theme');
       window.parent.postMessage({ type: 'REQUEST_THEME' }, '*');
     }
 
