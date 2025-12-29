@@ -39,7 +39,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 font-sans text-gray-900 dark:text-white pt-6 pb-12 px-4 flex items-start justify-center transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-black font-sans text-gray-900 dark:text-white pt-6 pb-12 px-4 flex items-start justify-center transition-colors duration-300">
       <div className="w-full max-w-[460px] mx-auto">
         <CharacterCounter />
       </div>
