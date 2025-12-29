@@ -5,6 +5,16 @@ import { CharacterCounter } from './components/CharacterCounter';
 const App: React.FC = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
+  // Separate effect to apply dark class whenever theme changes
+  useEffect(() => {
+    console.log('Applying theme class:', theme);
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]); // This runs whenever theme state changes
+
   // Listen for theme messages from Ghost site
   useEffect(() => {
     const handleThemeMessage = (event: MessageEvent) => {
@@ -12,14 +22,8 @@ const App: React.FC = () => {
       console.log('Received message:', event.data, 'from:', event.origin);
       
       if (event.data?.type === 'THEME_CHANGE') {
-        console.log('Setting theme to:', event.data.theme);
+        console.log('Changing theme to:', event.data.theme);
         setTheme(event.data.theme);
-        // Apply dark class to html element for Tailwind
-        if (event.data.theme === 'dark') {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
       }
     };
 
