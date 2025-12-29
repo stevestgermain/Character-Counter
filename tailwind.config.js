@@ -1,10 +1,10 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./*.{js,ts,jsx,tsx}",           // Root level files
+    "./components/**/*.{js,ts,jsx,tsx}", // Components folder
   ],
-  darkMode: 'class', // This enables dark mode via class on html element
+  darkMode: 'class',
   theme: {
     extend: {},
   },
